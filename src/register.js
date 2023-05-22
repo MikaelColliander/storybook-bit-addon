@@ -131,7 +131,7 @@ const Bit = () => {
               ))}
             </Form.Select>
             <Source
-              code={`nmp i @sj-ab/component-library.${item.replace(
+              code={`npm i @sj-ab/component-library.${item.replace(
                 "/",
                 "."
               )}@${selectedVersion}`}
