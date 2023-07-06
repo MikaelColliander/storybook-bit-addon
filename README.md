@@ -8,6 +8,10 @@ For projects utilizing both Storybook and Bit, this addon brings Bit component d
 * Source code
 * Dependencies
 
+## Demo
+Follow this link to a Storybook using the addon. Activate the 'Bit Versions' tab:
+https://stsjdesigndevsalesweu.z6.web.core.windows.net/next/index.html?path=/changelog/components-accordion--default-accordion
+
 ## Limitations
 * Change logs for components are not included since they are not available in the response provided by the api (https://node.bit.dev)
 * This addon will not render different component versions in Storybook.
@@ -16,6 +20,22 @@ For projects utilizing both Storybook and Bit, this addon brings Bit component d
 * @storybook/react project
 * Components hosted with Bit (typically a scope on bit.cloud)
 * A server to proxy api-calls towards https://node.bit.dev/<org>.<scope>
+
+## Server Api requirements
+To be able to display data from https://node.bit.dev you need a server to proxy api calls. For this addon the following routes need to be configured:
+
+* https://<your.domain>/component/<component-id>
+* https://<your.domain>/tarball/<component-id>/<version>
+
+The addon requires these routes to return data regarding a specific component that you have hosted on bit.cloud.
+
+The component route must return json data modelled the same way as
+https://node.bit.dev/<org>.<scope>.<component-id>
+
+The tarball route must return the Gunzipped contents of a components tarball:
+https://node.bit.dev/@bit/<org>.<scope>.<component-id>/-/@bit-<org>.<scope>.<component-id>-<version>.tgz
+
+This addon requires the .tgz to be unzipped on the server and the contens to be returned from the tarball route.
 
 ## How to implement this addon
 Register the addon in .storybook/main.js:
