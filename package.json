@@ -1,6 +1,6 @@
 {
   "name": "@feux/storybook-addon-bit",
-  "version": "1.1.6",
+  "version": "1.1.8",
   "description": "Integrate component versions info from Bit",
   "main": "dist/preset.js",
   "scripts": {
